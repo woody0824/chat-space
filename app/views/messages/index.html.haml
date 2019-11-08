@@ -1,24 +1,7 @@
 .label
   グールプを作成しました
 .wrapper
-  .boxes
-    .top-box
-      .top-box__class
-        .top-box__class__user-name
-          %p woody
-        .top-box__class__menu
-          .top-box__class__menu__new-group
-          =link_to "#", class: "contents__btn" do
-            = fa_icon 'edit'
-          .top-box__class__menu__edit-account
-          =link_to "#", class: "contents__btn" do
-            = fa_icon 'cog'
-    .bottom-box
-      .bottom-box__group
-        .bottom-box__group__name
-          %p e
-        .bottom-box__group__last-message
-          %p まだメッセージはありません
+  =render 'shared/side'
   .contents
     .top-content
       .top-content__left
@@ -47,6 +30,3 @@
       .file-content
         = fa_icon 'photo'
       %input{type: "file", class: "file"}/
-
-        
-        
