@@ -2,6 +2,9 @@
 @import "./reset";
 @import "font-awesome-sprockets";
 @import "./font-awesome";
+@import "./user";
+@import "config/colors";
+@import "modules/flash";
 
 .label {
   background-color: #38AEF0;
@@ -25,12 +28,12 @@
         line-height: 100px;
         justify-content: space-between;
       }
-        &__user-name {
+        &__class__user-name {
           font-size: 16px;
           color: #fafafa;
           padding: 0 20px;
         }
-        &__menu {
+        &__class__menu {
           display: flex;
           font-size: 130%;
           color: white;
@@ -65,11 +68,11 @@
       margin: 0 40px;
         &__left{
         }
-          &__current-group {
+          &__left__current-group {
             font-size: 20px;
             margin: 35px 0 0 0;
           }
-          &__member {
+          &__left__member {
             font-size: 12px;
             margin: 15px 0 0 0 ;
             color: #999999;
