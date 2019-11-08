@@ -9,6 +9,10 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+
+    def update
+    end
+    
   end
 
   private

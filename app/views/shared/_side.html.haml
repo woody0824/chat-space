@@ -1,0 +1,20 @@
+.boxes
+  .top-box
+    .top-box__class
+      .top-box__class__user-name
+        = current_user.name
+      .top-box__class__menu
+        .top-box__class__menu__new-group
+        = link_to new_group_path do
+          = fa_icon 'edit'
+        .top-box__class__menu__edit-account
+        =link_to edit_user_path(current_user) do
+          = fa_icon 'cog'
+  .bottom-box
+    - current_user.groups.each do |group|
+      .bottom-box__group
+        = link_to '#' do
+          .bottom-box__group__name
+            = group.name
+          .bottom-box__group__message
+            メッセージはまだありません。
