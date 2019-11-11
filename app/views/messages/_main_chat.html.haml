@@ -1,0 +1,23 @@
+.top-content
+  .top-content__left
+    .top-content__left__current-group
+      = @group.name
+    .top-content__left__member
+      - @group.users.each do |user_name|
+        %p= user_name.name
+  .edit-content
+    = link_to edit_group_path(@group) do
+      Edit
+
+.messages
+  = render @messages
+
+.bottom-content
+  .text-content
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'text', placeholder: 'type a message'
+      .file-content
+        = f.label :image, class: 'file' do
+          = fa_icon 'image', class: 'icon'
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'send-content'
