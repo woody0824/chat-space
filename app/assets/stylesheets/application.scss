@@ -94,6 +94,7 @@
     .messages {
       width: 100%;
       height: calc(100vh - 190px);
+      overflow: scroll;
       .midlle-content {
         width: 100%;
         height: calc(100vh - 190px);
