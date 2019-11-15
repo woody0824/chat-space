@@ -5,6 +5,6 @@
     = message.created_at.strftime("%Y/%m/%d %H:%M")
 .midlle-content__info__comment
   - if message.content.present?
-  %p.lower-message__content
-    = message.content
-      = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
+    %p.lower-message__content
+      = message.content
+  = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
