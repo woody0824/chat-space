@@ -1,10 +1,11 @@
-.midlle-content__info
-  .midlle-content__info__talker
-    = message.user.name
-  .midlle-content__info__date
-    = message.created_at.strftime("%Y/%m/%d %H:%M")
-.midlle-content__info__comment
-  - if message.content.present?
-    %p.lower-message__content
-      = message.content
-  = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
+.message{"data-message_id": "#{message.id}"}
+  .midlle-content__info
+    .midlle-content__info__talker
+      = message.user.name
+    .midlle-content__info__date
+      = message.created_at.strftime("%Y/%m/%d %H:%M")
+  .midlle-content__info__comment
+    - if message.content.present?
+      %p.lower-message__content
+        = message.content
+    = image_tag message.image.url, class: 'lower-message__image' if message.image.present?

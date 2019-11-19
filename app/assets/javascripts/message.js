@@ -1,9 +1,10 @@
 $(function(){
-  function buildHTML(message){
+  var buildMessageHTML = function(message) {
      let a = message.message?`<p class="lower-message__content">${message.message}</p>` :'';
      let b = message.image?`<img class="lower-message__image" src=${message.image} >` :'';
-    var html =    
-                  `<div class="midlle-content__info">
+    var html =    `
+                  <div class="message" data-message_id="${message.id}">
+                  <div class="midlle-content__info">
                   <div class="midlle-content__info__talker">
                   ${message.user_name}
                   </div>
@@ -14,7 +15,9 @@ $(function(){
                   <div class="midlle-content__info__comment">
                   ${a}
                   ${b}
-                  </div>`
+                  </div>
+                  </div>
+                  `
     return html;
   }
   $('#new_message').on('submit', function(e){
@@ -30,7 +33,7 @@ $(function(){
       contentType: false
     })
     .done(function(data){
-      var html = buildHTML(data);
+      var html = buildMessageHTML(data);
       $('.messages').append(html);
       $('form')[0].reset();
       $('.send-content').prop('disabled', false);
@@ -41,4 +44,27 @@ $(function(){
       alert('error');
     })
   })
-})
+  var reloadMessages = function() {
+    if (window.location.href.match(/\/groups\/\d+\/messages/)){
+      last_message_id = $('.message:last').data('message_id');
+      $.ajax({
+        url: 'api/messages',
+        type: 'GET',
+        dataType: 'json',
+        data: {id: last_message_id}
+      })
+      .done(function(messages) {
+        var insertHTML='';
+        messages.forEach(function(message){
+          insertHTML = buildMessageHTML(message);
+          $('.messages').append(insertHTML);
+          $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+        });
+      })
+      .fail(function(){
+        alert("自動更新に失敗しました")
+      });
+    }
+  };
+setInterval(reloadMessages, 7000);
+});
