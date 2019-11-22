@@ -54,10 +54,10 @@
     width: calc(100% - 300px);
     .top-content {
       height: 100px;
-      border: #eeeeee;
       display: flex;
       justify-content: space-between;
-      margin: 0 40px;
+      padding: 0 40px;
+      border-bottom: solid 1px #eeeeee;
         &__left{
         }
           &__left__current-group {
@@ -86,6 +86,7 @@
       width: 100%;
       height: calc(100vh - 190px);
       overflow: scroll;
+      background-color: #fafafa;
       .midlle-content {
         width: 100%;
         height: calc(100vh - 190px);
@@ -121,6 +122,7 @@
           display: flex;
           justify-content: space-between;
           .text {
+            border-style: none;
             width: 100%;
             height: 50px;
             padding: 0 0 0 10px;
