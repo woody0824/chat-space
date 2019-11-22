@@ -3,7 +3,7 @@
     .midlle-content__info__talker
       = message.user.name
     .midlle-content__info__date
-      = message.created_at.strftime("%Y/%m/%d %H:%M")
+      = message.created_at.strftime("%Y-%m-%d %H:%M")
   .midlle-content__info__comment
     - if message.content.present?
       %p.lower-message__content
