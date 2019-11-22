@@ -8,7 +8,7 @@
         = link_to new_group_path do
           = fa_icon 'edit'
         .top-box__class__menu__edit-account
-        =link_to edit_user_path(current_user) do
+        = link_to edit_user_path(current_user) do
           = fa_icon 'cog'
   .bottom-box
     - current_user.groups.each do |group|
